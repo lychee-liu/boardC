@@ -48,10 +48,12 @@ void RemoteControl::handle() {
 }
 
 void RemoteControl::uartRxCallback(uint16_t Size) {
-    //todo:判断数据长度，是否为有效数据
-    memcpy(rx_data, rx_buf, Size);
-    updateStatus();
-    HAL_UARTEx_ReceiveToIdle_DMA(&huart3, rx_buf, Size);
+    if (strlen((char*)rx_buf)==6) {
+        memcpy(rx_data, rx_buf, Size);
+        updateStatus();
+        HAL_UARTEx_ReceiveToIdle_DMA(&huart3, rx_buf, Size);
+    }
+
 
 }
 
