@@ -5,7 +5,7 @@
 #include "usart.h"
 #include "RC.h"
 
-extern RC remote;
+extern RemoteControl remote;
 
 void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef* htim) {
     if (htim == &htim6) {

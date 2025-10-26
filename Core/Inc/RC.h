@@ -7,7 +7,7 @@
 #include "stm32f4xx_hal.h"
 
 
-class RC {
+class RemoteControl {
 private:
     uint32_t tick;
     bool status = true;
@@ -30,7 +30,8 @@ private:
     SwitchPos s1=RESET,s2=RESET;
 public:
 
-    RC();
+    RemoteControl();
+    void init();
     bool updateStatus();
     bool checkStatus();
     void handle();
